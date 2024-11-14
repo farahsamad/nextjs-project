@@ -8,7 +8,7 @@ interface emailInterface {
   userId: string;
 }
 
-export async function sendEmail({ email, emailType, userId }: emailInterface) {
+export async function sendEmail({ email, emailType, userId }: any) {
   try {
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
     if (emailType === "VERIFY") {
@@ -32,7 +32,7 @@ export async function sendEmail({ email, emailType, userId }: emailInterface) {
     }
 
     // Looking to send emails in production? Check out our Email API/SMTP product!
-    var transport = nodemailer.createTransport({
+    const transport = nodemailer.createTransport({
       host: "sandbox.smtp.mailtrap.io",
       port: 2525,
       auth: {

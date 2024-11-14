@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -12,7 +12,7 @@ function ProfilePage() {
   const [data, setData] = useState("nothing");
   const handelLogout = async () => {
     try {
-      const response = await axios.get("/api/users/logout");
+      await axios.get("/api/users/logout");
       router.push("/login");
     } catch (error: any) {
       setError(error.message);
