@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { url } from "inspector";
 
 function VerifyEmailPage() {
   const [token, setToken] = useState("");
